@@ -21,5 +21,5 @@ public class Buyer extends Person {
 //                Thread.currentThread().interrupt();
 //            }
 //        }).start();
-    }
+//    }
 }
