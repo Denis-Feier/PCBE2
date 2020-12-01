@@ -4,13 +4,12 @@ import lombok.Data;
 
 @Data
 public abstract class StockElement {
+    private String id;
     private double price;
-    private int count;
     private Person owner;
 
-    StockElement(double price, int count, Person owner) {
+    StockElement(double price, Person owner) {
         this.setPrice(price);
-        this.setCount(count);
         this.setOwner(owner);
     }
 
@@ -18,16 +17,8 @@ public abstract class StockElement {
         return price;
     }
 
-    private void setPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    void setCount(int count) {
-        this.count = count;
     }
 
     public Person getOwner() {
@@ -40,7 +31,7 @@ public abstract class StockElement {
 
     @Override
     public String toString() {
-        return "{\"price\": " + price + ", \"count\": " + count + "\"owner\": " + owner.getName() + "}";
+        return "{\"price\": " + price + " \"owner\": " + owner.getName() + "}";
     }
 
 

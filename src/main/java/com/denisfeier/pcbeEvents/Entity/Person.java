@@ -8,17 +8,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public abstract class Person {
-    private String identifier;
     private String name;
-
-    public String getIdentifier() {
-        return this.identifier;
-    }
 
     public String getName() {
         return this.name;
     }
-
-    abstract void notify(double cost);
 
 }
