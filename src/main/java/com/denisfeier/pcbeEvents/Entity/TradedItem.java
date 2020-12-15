@@ -1,17 +1,9 @@
 package com.denisfeier.pcbeEvents.Entity;
-
-import lombok.Data;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class TradedItem {
     private static AtomicInteger ID_GENERATOR = new AtomicInteger(1);
 
-    public String getId() {
-        return id;
-    }
-
-    String id;
     private int iid;
     private String name;
     private int count;

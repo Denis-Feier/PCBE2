@@ -3,7 +3,7 @@ package com.denisfeier.pcbeEvents.events.handlers;
 import com.denisfeier.pcbeEvents.Entity.Person;
 import com.denisfeier.pcbeEvents.events.Event;
 
-public class newSupplyEventHandler extends newTradedItemEventHandler{
+public class newSupplyEventHandler extends BasicEventHandler {
 
     @Override
     public boolean handle(Event event) {

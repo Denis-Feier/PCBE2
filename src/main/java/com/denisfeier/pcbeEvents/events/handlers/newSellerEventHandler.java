@@ -11,7 +11,6 @@ public class newSellerEventHandler extends BasicEventHandler{
         event.notifyObservers();
         return true;
     }
-
     @Override
     public boolean handleLocally(Event event, Person p1, Person p2) {
         System.out.println("\nNew Seller added to market");

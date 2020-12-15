@@ -10,13 +10,10 @@ public abstract class BasicEventHandler implements EventHandler {
         event.setChanged(true);
         event.notifyObservers();
     }
-
     @Override
     public abstract boolean handle(Event event);
-
     @Override
     public boolean handleLocally(Event event, Person p1, Person p2){
         return true;
     }
-
 }

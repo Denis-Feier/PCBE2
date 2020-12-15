@@ -3,10 +3,7 @@ package com.denisfeier.pcbeEvents.events;
 import com.denisfeier.pcbeEvents.events.handlers.*;
 
 public class EventHandlerManager {
-
-    public EventHandlerManager(){
-
-    }
+    public EventHandlerManager(){}
     public EventHandler getProperHandler(Event.Type type){
         switch (type){
             case NEW_DEMAND:return new newDemandEventHandler();

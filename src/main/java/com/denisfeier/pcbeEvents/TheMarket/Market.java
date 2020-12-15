@@ -6,7 +6,6 @@ import com.denisfeier.pcbeEvents.Entity.Person;
 import com.denisfeier.pcbeEvents.Entity.Supply;
 import com.denisfeier.pcbeEvents.events.*;
 import com.denisfeier.pcbeEvents.events.events.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -37,7 +36,6 @@ public class Market {
         this.supplies.add(supply);
         List<Object> content = new ArrayList<>();
         content.add(supply);
-//        System.out.println("content in supply event : " + content);
         this.dispatcher.addEvent(new NewSupplyEvent(Event.Type.NEW_SUPPLY,this,content));
         this.dispatcher.dispatch(Event.Type.NEW_SUPPLY);
     }
@@ -128,14 +126,11 @@ public class Market {
             if(demand.getPrice() <  supply.getPrice()){return;}
             if (supply.getCount() == 0 || demand.getCount() == 0) { return; }
             int min = Math.min(supply.getCount(), demand.getCount());
-            System.out.println(demand.getName() + " :: " + "supply: " + supply.getCount() + " demand " + demand.getCount());
             List<Object> participants = new ArrayList<>();
             participants.add(demand.getOwner());
             participants.add(supply.getOwner());
             this.dispatcher.addEvent(new NewMatchEvent(Event.Type.MATCHED_SUPPLY_DEMAND,this,participants));
             dispatcher.dispatchTo(Event.Type.MATCHED_SUPPLY_DEMAND, supply.getOwner(),demand.getOwner());
-            supply.setCount(supply.getCount() - min);
-            demand.setCount(demand.getCount() - min);
             supply.use(min, supply.getPrice(), supply.getName());
             demand.use(min, supply.getPrice(), demand.getName());
     }
@@ -158,9 +153,5 @@ public class Market {
                     }
             if (debounceWaitTime == 10) { return; }
         }
-    }
-
-    public void postMessage(String message){
-        System.out.println("Message posted to : " + message);
     }
 }

@@ -24,7 +24,6 @@ public abstract class Person implements Observer {
 
     private double budget;
 
-    // bought stocks owned stocks, could be selling or buying
     private List<TradedItem> assets;
 
     public Person(String name, double budget, List<TradedItem> assets, Market market) {
@@ -150,10 +149,6 @@ public abstract class Person implements Observer {
 
     public String getName() {
         return this.name;
-    }
-
-    public void sendMessage(String message){
-        System.out.println("Hey there, I'm " + this.name);
     }
 
     public abstract void act(TradedItem item, int count);

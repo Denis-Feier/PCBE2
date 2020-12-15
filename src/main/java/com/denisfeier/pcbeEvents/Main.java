@@ -16,14 +16,12 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         Market market = MarketSingleton.getInstance();
         System.out.println("Starting market ..");
-        initApp(2,2,market);
-
+        initApp(3,3,market);
         System.out.println("Ending market ..");
     }
 
     private static void initApp(int numberOfSellers, int numberOfBuyers, Market market) throws FileNotFoundException {
         final Random rnd = new Random();
-
         Scanner sc = null;
         sc = new Scanner(new File("D:/GIT/meh/PCBE/src/main/java/com/denisfeier/constants/stocks.txt"));
         List<String> lines0 = new ArrayList<String>();
@@ -44,10 +42,10 @@ public class Main {
         List<Seller> sellers = new ArrayList<Seller>();
         List<Buyer> buyers = new ArrayList<Buyer>();
 
-        Buyer buyer = new Buyer("CRISTINA",99999,new ArrayList<>(),market);
-        Seller seller = new Seller("ALEXTEST",99999,new ArrayList<>(),market);
-        sellers.add(new Seller("ALEXTEST",99999,new ArrayList<>(),market));
-        buyers.add(new Buyer("CRISTINA",99999,new ArrayList<>(),market));
+        Buyer buyer = new Buyer("ANA SI ION",99999,new ArrayList<>(),market);
+        Seller seller = new Seller("MARIA SI GIGI",99999,new ArrayList<>(),market);
+        sellers.add(new Seller("MARIA SI GIGI",99999,new ArrayList<>(),market));
+        buyers.add(new Buyer("ANA SI ION",99999,new ArrayList<>(),market));
         seller.subscribeToEvent(Event.Type.NEW_DEMAND,Person.Filter.NONE,-1);
         seller.subscribeToEvent(Event.Type.MATCHED_SUPPLY_DEMAND,Person.Filter.NONE,-1);
         buyer.subscribeToEvent(Event.Type.NEW_SUPPLY,Person.Filter.NONE,-1);
@@ -95,11 +93,9 @@ public class Main {
         buyer.addDemandToMarket(new Demand("OurSupply",1000, 1000,buyer));
         seller.addSupplyToMarket(new Supply("FirstOurs",4004,400,seller));
 
-        System.out.println(market.getSupply("OurSupply").getPrice());
         Seller theOne = new Seller("Mr Gary Lary",99099,new ArrayList<>(),market);
         theOne.updateSupplyPrice(market.getSupply("OurSupply"),404040.0);
         Supply modifiedSupply = market.getSupply("OurSupply");
-        System.out.println(modifiedSupply.getName() + "  " + modifiedSupply.getPrice());
         theOne.subscribeToEvent(Event.Type.NEW_BUYER, Person.Filter.NONE,-1);
 
         theOne.subscribeToEvent(Event.Type.NEW_SELLER, Person.Filter.NONE,-1);

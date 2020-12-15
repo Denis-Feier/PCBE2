@@ -9,18 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewUpdatedDemandEvent extends Event {
-    public NewUpdatedDemandEvent(Type type, Market market, List<Object> content) {
-        super(Type.NEW_UPDATED_DEMAND, market,content);
+    public NewUpdatedDemandEvent(Event.Type type, Market market, List<Object> content) {
+        super(type, market,content);
     }
     @Override
     public List<Object> getUpdate(Observer observer) {
-//        return this.getContent();
         List<Supply> last = getMarket().getSupplies();
         int listSize = last.size();
         Supply lastSupply = last.get(listSize - 1);
         List<Object> ar = new ArrayList<>();
         ar.add(lastSupply.getName());
         return ar;
-//        return lastSupply.getName() + "| count: " + lastSupply.getCount() + " price: " + lastSupply.getPrice();
     }
 }

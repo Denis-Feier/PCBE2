@@ -9,11 +9,9 @@ import java.util.*;
 
 public class EventDispatcher {
     private Map<Event.Type, EventHandler> events;
-//    private final Object MUTEX=new Object();
     public List<Event> getOccured() {
         return occured;
     }
-
     public List<Event> getAwaiting() {
         return awaiting;
     }
@@ -46,7 +44,6 @@ public class EventDispatcher {
         return this;
     }
 
-    // Registers an event
     public void registerEvent(Event event) {
         if(this.events.containsKey(event.getType())){
             System.out.println("already has key");
@@ -62,7 +59,6 @@ public class EventDispatcher {
         this.events.put(event.getType(),eventHandlerManager.getProperHandler(event.getType()));
     }
 
-    // registers to event type the observer user
     public void register(Event.Type type, Observer observer){
         if(!this.events.containsKey(type)){
             System.out.println("no event type");
@@ -108,8 +104,6 @@ public class EventDispatcher {
         dispatchTo(type,null,null);
     }
 
-
-
     public Event getEvent(Event.Type type){
         for(Event index: awaiting){
             if(index.getType().equals(type)){
@@ -134,23 +128,13 @@ public class EventDispatcher {
         if(inAwaiting!=null){
             for(Observer o : inAwaiting.getObservers()){
                 event.register(o);
-//                Map<Person.Filter,Integer> filter = o.getEventFilter(event.getType());
-//                Person.Filter localFilter = filter.keySet().stream().findFirst().orElse(null);
-//                o.unsubscribeFromEvent(inAwaiting);
-//                o.subscribeToEvent(event.getType(),localFilter,filter.get(localFilter));
             }
         }
         if(inOccured!=null){
             for(Observer o : inOccured.getObservers()){
                 event.register(o);
-//                Map<Person.Filter,Integer> filter = o.getEventFilter(event.getType());
-//                Person.Filter localFilter = filter.keySet().stream().findFirst().orElse(null);
-//                o.unsubscribeFromEvent(inOccured);
-//                o.subscribeToEvent(event.getType(),localFilter,filter.get(localFilter));
             }
         }
-
         this.awaiting.add(event);
-
     }
 }

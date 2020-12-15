@@ -4,7 +4,6 @@ import com.denisfeier.pcbeEvents.Entity.Person;
 import com.denisfeier.pcbeEvents.TheMarket.Market;
 import com.denisfeier.pcbeEvents.Observable;
 import com.denisfeier.pcbeEvents.Observer;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,7 +112,6 @@ public abstract class Event implements Observable{
             person2.update(this.getType());
         }
     }
-
     @Override
     public abstract List<Object> getUpdate(Observer observer);
 

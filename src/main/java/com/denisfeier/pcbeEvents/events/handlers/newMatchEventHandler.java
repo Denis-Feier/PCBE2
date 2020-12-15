@@ -9,12 +9,9 @@ public class newMatchEventHandler extends BasicEventHandler {
     public boolean handle(Event event) {
         System.out.println("\nMatched offer with demand");
         event.setChanged(true);
-//        System.out.println(event.getObservers());
-//        System.out.println(event.getType());
         event.notifyObservers();
         return true;
     }
-
     @Override
     public boolean handleLocally(Event event, Person p1, Person p2) {
         System.out.println("\nMatched offer with demand");
