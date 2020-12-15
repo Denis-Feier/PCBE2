@@ -1,10 +1,9 @@
 package com.denisfeier.pcbeEvents.Entity;
 
-import com.denisfeier.pcbeEvents.stuff.updatedstuff.Observable;
-import com.denisfeier.pcbeEvents.stuff.updatedstuff.Observer;
-import com.denisfeier.pcbeEvents.stuff.updatedstuff.TheMarket.Market;
-import com.denisfeier.pcbeEvents.stuff.updatedstuff.events.Event;
-import com.denisfeier.pcbeEvents.stuff.updatedstuff.events.EventHandler;
+import com.denisfeier.pcbeEvents.Observable;
+import com.denisfeier.pcbeEvents.Observer;
+import com.denisfeier.pcbeEvents.TheMarket.Market;
+import com.denisfeier.pcbeEvents.events.Event;
 
 import java.util.*;
 

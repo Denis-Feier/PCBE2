@@ -1,6 +1,6 @@
 package com.denisfeier.pcbeEvents.Entity;
 
-import com.denisfeier.pcbeEvents.stuff.updatedstuff.TheMarket.Market;
+import com.denisfeier.pcbeEvents.TheMarket.Market;
 
 import java.util.List;
 
