@@ -1,9 +1,8 @@
 package com.denisfeier.pcbeEvents.Entity;
 
-public class Demand extends StockElement {
+public class Demand extends TradedItem {
 
-    public Demand(double price, int count, Buyer owner) {
-        super(price, owner);
+    public Demand(String name, int count, double price, Person owner) {
+        super(name,count,price,owner);
     }
-
 }

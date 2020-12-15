@@ -2,8 +2,7 @@ package com.denisfeier.pcbeEvents.market;
 
 import com.denisfeier.pcbeEvents.Entity.Buyer;
 import com.denisfeier.pcbeEvents.Entity.Seller;
-import com.denisfeier.pcbeEvents.Entity.Stock;
-import com.denisfeier.pcbeEvents.Entity.StockElement;
+import com.denisfeier.pcbeEvents.Entity.Supply;
 import com.denisfeier.pcbeEvents.Lib.EventDispatcher;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class MarketState {
     private List<Buyer> buyers;
     private List<Seller> sellers;
 
-    private List<Stock> stocks;
+    private List<Supply> supplies;
 
     public MarketState(EventDispatcher dispatcher) {
         this.dispatcher = dispatcher;
@@ -31,17 +30,17 @@ public class MarketState {
         this.sellers.add(seller);
     }
 
-    public Stock updateStock(String id, double newPrice) {
+    public Supply updateStock(String id, double newPrice) {
 
-        List<Stock> element = this.stocks
+        List<Supply> element = this.supplies
                 .stream()
                 .filter(stockElement -> stockElement.getId().equals(id))
                 .collect(Collectors.toList());
 
         if (element.size() != 0) {
-            Stock stockElement = element.get(0);
-            stockElement.setPrice(newPrice);
-            return stockElement;
+            Supply supplyElement = element.get(0);
+            supplyElement.setPrice(newPrice);
+            return supplyElement;
         } else {
             return null;
         }
